@@ -1,9 +1,9 @@
 const printResult = (result) => {
-    if(result) {
+    if(typeof result !== 'undefined' && result === true) {
         return 'GOOD';
     }
     
-    return 'BAD';
+    return 'BAd';
 }
 
 export default printResult;

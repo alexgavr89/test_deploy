@@ -9,5 +9,9 @@ describe('Тесты утилит: ', () => {
         it('если параметр result равен false, функция возвращает BAD', () => {
             expect(printResult(false)).toBe('BAD');
         });
+        
+        it('если параметр result равен undefined, функция возвращает BAD', () => {
+            expect(printResult()).toBe('BAD');
+        });
     });
 });

@@ -4,11 +4,11 @@ import printResult from "./utils";
 const App = () => {
     return (
         <>
-            <h1>Test deploy - good test</h1>
+            <h1>Test deploy - bad test</h1>
 
             <hr />
 
-            <p>Result: {printResult(true)}</p>
+            <p>Result: {printResult('good')}</p>
         </>
     );
 }
