@@ -3,7 +3,7 @@ const printResult = (result) => {
         return 'GOOD';
     }
     
-    return 'BAd';
+    return 'BAD';
 }
 
 export default printResult;
