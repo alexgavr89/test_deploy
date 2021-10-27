@@ -14,16 +14,13 @@ jobs:
       
     runs-on: ubuntu-latest
 
-    steps:
-    - name: GITHUB_RUN_ID
-      run: echo "${GITHUB_RUN_ID}"
-      
+    steps:     
     - name: VERSION
-      run: echo v"${VERSION}"
+      run: echo "${VERSION}"
       
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile -t alexgavr89/test_deploy:v"${VERSION}"
+      run: docker build . --file Dockerfile -t alexgavr89/test_deploy:"${VERSION}"
       
     - name: Login hub.docker.com
       run: docker login -u alexgavr89 -p ${{ secrets.DOCKER_HUB }}
