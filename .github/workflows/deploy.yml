@@ -14,14 +14,14 @@ jobs:
 
     steps:     
     - name: VERSION
-      run: echo ${{ GITHUB_RUN_ID }}
+      run: echo ${ GITHUB_RUN_ID }
       
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile -t alexgavr89/test_deploy:${{ GITHUB_RUN_ID }}
+      run: docker build . --file Dockerfile -t alexgavr89/test_deploy:${ GITHUB_RUN_ID }
       
     - name: Login hub.docker.com
       run: docker login -u alexgavr89 -p ${{ secrets.DOCKER_HUB }}
       
     - name: Push the Docker image
-      run: docker push alexgavr89/test_deploy:${{ GITHUB_RUN_ID }}
+      run: docker push alexgavr89/test_deploy:${ GITHUB_RUN_ID }
