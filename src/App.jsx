@@ -8,7 +8,7 @@ const App = () => {
 
             <hr />
 
-            <p>Result: {printResult('good')}</p>
+            <p>Result: {printResult(true)}</p>
         </>
     );
 }
