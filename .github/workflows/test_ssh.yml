@@ -20,13 +20,5 @@ jobs:
         with:
           # SSH private key
           key: ${{ secrets.SSH_PRIVATE_KEY_GAME }}
-          # SSH key file name (default: id_rsa)
-          name: id_rsa
-          # public keys of SSH servers
-          known_hosts: '' 
-          # SSH config
-          config: '' 
-          # replace / ignore / fail
-          if_key_exists: ignore
       - name: Test ssh
-        run: ssh ${{ secrets.SSH_NAME_TEST }}@${{ secrets.SSH_HOST_TEST }} -p ${{ secrets.SSH_PORT_TEST }}
+        run: ssh ${{ secrets.SSH_NAME_TEST }}@${{ secrets.SSH_HOST_TEST }} -p ${{ secrets.SSH_PORT_TEST }} 'echo "GOOD"'
