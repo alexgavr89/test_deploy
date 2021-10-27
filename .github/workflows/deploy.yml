@@ -12,5 +12,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Use Node.js ${{ matrix.node-version }}
-        run: 'Test merge GOOD'
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile -t alexgavr89/test_deploy:$(date +%s)
