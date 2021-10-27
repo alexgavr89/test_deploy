@@ -20,5 +20,6 @@ jobs:
         with:
           # SSH private key
           key: ${{ secrets.SSH_PRIVATE_KEY_TEST }}
+          known_hosts: ''
       - name: Test ssh
         run: ssh ${{ secrets.SSH_NAME_TEST }}@${{ secrets.SSH_HOST_TEST }} -p ${{ secrets.SSH_PORT_TEST }} 'echo "GOOD"'
