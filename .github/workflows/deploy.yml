@@ -17,6 +17,12 @@ jobs:
       run: echo "${GITHUB_RUN_ID}"
       
     - uses: actions/checkout@v2
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2.4.1
+      with:
+        node-version: ${{ matrix.node-version }}
+    
     - name: Build the Docker image
       run: docker build . --file Dockerfile -t alexgavr89/test_deploy:${GITHUB_RUN_ID}
       
