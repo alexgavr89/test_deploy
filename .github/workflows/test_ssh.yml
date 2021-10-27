@@ -19,6 +19,6 @@ jobs:
         uses: shimataro/ssh-key-action@v2.3.1
         with:
           # SSH private key
-          key: ${{ secrets.SSH_PRIVATE_KEY_GAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_TEST }}
       - name: Test ssh
         run: ssh ${{ secrets.SSH_NAME_TEST }}@${{ secrets.SSH_HOST_TEST }} -p ${{ secrets.SSH_PORT_TEST }} 'echo "GOOD"'
