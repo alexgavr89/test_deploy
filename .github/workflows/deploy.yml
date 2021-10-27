@@ -7,16 +7,17 @@ on:
   
   workflow_dispatch:
 
-env:
-  VERSION: $(date +%s)
-
-jobs:
+jobs: 
   docker_build:
+    env:
+      VERSION: $(date +%s)
+      
     runs-on: ubuntu-latest
 
     steps:
     - name: VERSION
       run: echo v${VERSION}
+      
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile -t alexgavr89/test_deploy:v${VERSION}
