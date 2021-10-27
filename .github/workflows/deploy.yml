@@ -3,7 +3,7 @@ name: Deploy app
 on:
   push:
     branches:
-      - main
+      - task_2_good_test
   
   workflow_dispatch:
 
