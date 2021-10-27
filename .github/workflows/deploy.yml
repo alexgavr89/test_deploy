@@ -10,7 +10,7 @@ on:
 jobs: 
   docker_build:
     env:
-      VERSION: $(date +%s)
+      VERSION: ${GITHUB_RUN_ID}
       
     runs-on: ubuntu-latest
 
