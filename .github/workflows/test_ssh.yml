@@ -1,0 +1,32 @@
+
+name: Test ssh
+
+on:
+  push:
+    branches:
+      - main
+  
+  workflow_dispatch:
+
+jobs: 
+  deploy:
+      runs-on: ubuntu-latest
+
+      steps:
+      - name: Install SSH Key
+        # You may pin to the exact commit or the version.
+        # uses: shimataro/ssh-key-action@3c9b0fc6f2d223b8450b02a0445f526350fc73e0
+        uses: shimataro/ssh-key-action@v2.3.1
+        with:
+          # SSH private key
+          key: ${{ secrets.SSH_PRIVATE_KEY_GAME }}
+          # SSH key file name (default: id_rsa)
+          name: id_rsa
+          # public keys of SSH servers
+          known_hosts: '' 
+          # SSH config
+          config: '' 
+          # replace / ignore / fail
+          if_key_exists: ignore
+      - name: Test ssh
+        run: ssh ${{ secrets.SSH_NAME_TEST }}@${{ secrets.SSH_HOST_TEST }} -p ${{ secrets.SSH_PORT_TEST }}
