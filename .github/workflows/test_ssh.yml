@@ -12,13 +12,12 @@ jobs:
   deploy:
       runs-on: ubuntu-latest
 
-      steps:        
-      - name: Setup SSH
-        uses: kielabokkie/ssh-key-and-known-hosts-action@v1.2.0
+      steps:
+      - name: SSH Setup
+        uses: MrSquaare/ssh-setup-action@v1.0.1
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY_TEST }}
-          ssh-host: ${{ secrets.SSH_HOST_TEST }}
-          ssh-port: ${{ secrets.SSH_PORT_TEST }}
+          host: ${{ secrets.SSH_HOST_TEST }}
+          private-key: ${{ secrets.SSH_PRIVATE_KEY_TEST }}
           
       - name: Test ssh
         run: ${{ secrets.SSH_TEST_CONNECT }} 'ls /web/'
