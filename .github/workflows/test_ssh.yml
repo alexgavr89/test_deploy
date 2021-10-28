@@ -18,6 +18,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST_TEST }}
           private-key: ${{ secrets.SSH_PRIVATE_KEY_TEST }}
+          private-key-name: id_rsa
           
       - name: Test ssh
         run: ${{ secrets.SSH_TEST_CONNECT }} 'ls /web/'
