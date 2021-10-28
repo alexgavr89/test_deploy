@@ -22,3 +22,5 @@ jobs:
           
       - name: Test ssh
         run: ${{ secrets.SSH_TEST_CONNECT }} 'ls /web/'
+        
+        
