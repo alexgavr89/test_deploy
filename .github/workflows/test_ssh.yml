@@ -23,3 +23,4 @@ jobs:
           known_hosts: ${{ secrets.SSH_HOST_TEST }}
       - name: Test ssh
         run: ${{ secrets.SSH_TEST_CONNECT }} 'echo "GOOD"'
+        
