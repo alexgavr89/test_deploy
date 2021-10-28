@@ -21,5 +21,4 @@ jobs:
           ssh-port: ${{ secrets.SSH_PORT_TEST }}
           
       - name: Test ssh
-        run: ${{ secrets.SSH_TEST_CONNECT }} 'echo "GOOD"'
-        
+        run: ${{ secrets.SSH_TEST_CONNECT }} 'ls /web/'
