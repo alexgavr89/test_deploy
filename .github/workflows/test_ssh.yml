@@ -31,6 +31,6 @@ jobs:
           username: ${{ secrets.SSH_NAME_TEST }}
           key: ${{ secrets.SSH_PRIVATE_KEY_TEST }}
           port: ${{ secrets.SSH_PORT_TEST }}
-          script: whoami
+          script: cd /web/test_deploy/ && docker-compose up -d
           
         
