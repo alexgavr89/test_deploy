@@ -43,4 +43,4 @@ jobs:
           username: ${{ secrets.SSH_NAME_TEST }}
           key: ${{ secrets.SSH_PRIVATE_KEY_TEST }}
           port: ${{ secrets.SSH_PORT_TEST }}
-          script: cd /web/test_deploy/ && docker-compose down && docker-compose up -d --build
+          script: cd /web/test_deploy/ && docker pull  alexgavr89/test_deploy:latest && docker-compose down && docker-compose up -d --build
