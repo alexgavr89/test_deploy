@@ -3,13 +3,12 @@ name: Deploy app
 on:
   push:
     branches:
-      - task_2_good_test
+      - main
   
   workflow_dispatch:
 
 jobs: 
   docker_build:
-      
     runs-on: ubuntu-latest
 
     steps:     
@@ -24,10 +23,23 @@ jobs:
         node-version: ${{ matrix.node-version }}
     
     - name: Build the Docker image
-      run: docker build . --file Dockerfile -t alexgavr89/test_deploy:${GITHUB_RUN_ID}
+      run: docker build . --file Dockerfile -t alexgavr89/test_deploy:latest
       
     - name: Login hub.docker.com
       run: docker login -u alexgavr89 -p ${{ secrets.DOCKER_HUB }}
       
     - name: Push the Docker image
-      run: docker push alexgavr89/test_deploy:${GITHUB_RUN_ID}
+      run: docker push alexgavr89/test_deploy:latest
+
+  deploy:
+      runs-on: ubuntu-latest
+
+      steps:
+      - name: Executing remote ssh commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST_TEST }}
+          username: ${{ secrets.SSH_NAME_TEST }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_TEST }}
+          port: ${{ secrets.SSH_PORT_TEST }}
+          script: cd /web/test_deploy/ && docker-compose down && docker-compose up -d --build
