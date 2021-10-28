@@ -35,7 +35,4 @@ jobs:
           ssh_before: |
             ls /web/
           
-      - name: Test ssh
-        run: ${{ secrets.SSH_TEST_CONNECT }} 'ls /web/'
-        
         
