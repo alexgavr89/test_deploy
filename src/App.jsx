@@ -4,7 +4,7 @@ import printResult from "./utils";
 const App = () => {
     return (
         <>
-            <h1>Test deploy - good jop</h1>
+            <h1>Test deploy - full process</h1>
 
             <hr />
 
